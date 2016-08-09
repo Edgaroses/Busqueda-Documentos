@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="busquedadocumentacion">
+
+<head>
+<meta charset="utf-8">
+<title>Programa Búsqueda</title>
+<link rel="stylesheet" href="css/app.css"/>
+</head>
+
+
+<body ng-controller="Documentos">
+<center>
+
+<!-- barra de busqueda -->
+	<div id="busqueda" class="filtro">
+        <span class="buscardocumento">Buscar:</span> 
+        <input center ng-model="DocumentoBuscado" class="filtrodocumento">
+	</div>
+
+
+    <div id="tablaresultado">
+     <table class="tabladocumento">
+         <tr>
+             <th>Nombre</th>
+             <th>Fecha</th>
+             <th>Autor</th>
+         </tr>
+        <tr ng-repeat="documento in archivos | filter:DocumentoBuscado">
+            <td>{{documento.nombre}}</td>
+            <td>{{documento.fecha}}</td>
+            <td>{{documento.autor}}</td>
+        </tr>
+    </table>
+    </div>
+</center>
+
+<script src="lib/angular.js"></script>
+<script src="js/app.js"></script>  
+<script src="js/controller.js"></script> 
+
+</body>
+</html>
+
